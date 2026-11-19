@@ -211,9 +211,12 @@ export function ExplorerView({ fights, onSelectFight }: ExplorerViewProps) {
         <div className="wcl-zone-banner">
           <div className="wcl-zone-title-wrap">
             <img
-              src={getWowheadIconUrl(activeDungeon?.icon || "achievement_boss_argustheunmaker", "medium")}
+              src={getWowheadIconUrl(activeDungeon?.icon || "achievement_challengemode_gold", "medium")}
               alt=""
               className="wcl-zone-icon"
+              onError={(e) => {
+                (e.currentTarget as HTMLImageElement).src = getWowheadIconUrl("inv_relics_hourglass", "medium");
+              }}
             />
             <div>
               <h1 className="wcl-zone-title">
